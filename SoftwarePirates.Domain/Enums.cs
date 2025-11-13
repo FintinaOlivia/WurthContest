@@ -14,6 +14,16 @@ namespace SoftwarePirates.Domain
         }
     }
 
+    public enum ShipTypes
+    {
+        [Description("Pinnace")]
+        Pinnace,
+        [Description("Sloop")]
+        Sloop,
+        [Description("War Galleon")]
+        WarGalleon,
+    }
+
     public enum CannonAccuracies
     {
         [Description("")]

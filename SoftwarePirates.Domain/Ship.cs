@@ -1,4 +1,6 @@
-﻿namespace SoftwarePirates.Domain
+﻿using SoftwarePirates.Domain.Modifiers;
+
+namespace SoftwarePirates.Domain
 {
     public class Ship : IShipBattleModel, IShipDisplayModel, IShipTypeCardModel
     {
@@ -60,6 +62,8 @@
         public int MaxCrew { get; set; } = 0;
 
         public int CargoCapacity { get; set; } = 0;
+
+        public (bool Reinforced, bool BigGuns, bool Elite)  ModifierList { get; set; } = (false, false, false);
 
         public bool HasNotes()
         {

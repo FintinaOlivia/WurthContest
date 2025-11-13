@@ -9,7 +9,7 @@ namespace SoftwarePirates.Domain
             new Ship
             {
                 ApIcon = "8",
-                ShipType = "Pinnace",
+                ShipType = ShipTypes.Pinnace.GetDescription(),
                 PhysicalSizes = PhysicalSizes.VerySmall,
                 Manueverability = "Very High",
                 Durability = "Very Low",
@@ -25,7 +25,7 @@ namespace SoftwarePirates.Domain
             new Ship
             {
                 ApIcon = "Z",
-                ShipType = "Sloop",
+                ShipType = ShipTypes.Sloop.GetDescription(),
                 PhysicalSizes = PhysicalSizes.Small,
                 Manueverability = "High",
                 Durability = "Low",
@@ -41,7 +41,7 @@ namespace SoftwarePirates.Domain
             new Ship
             {
                 ApIcon = "P",
-                ShipType = "War Galleon",
+                ShipType = ShipTypes.WarGalleon.GetDescription(),
                 PhysicalSizes = PhysicalSizes.Large,
                 Manueverability = "Low",
                 Durability = "High",

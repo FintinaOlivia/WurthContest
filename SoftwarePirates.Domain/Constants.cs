@@ -5,5 +5,7 @@
         public const int CANNONSTANDARDCOST = 20;
         public const int CREWSTANDARDCOST = 10; 
         public const int DURABILITYCOUNTERS = 10;
+        public const int ELITECREWCOST = 15;
+        public const int BIGGUNSCOST = 10;
     }
 }

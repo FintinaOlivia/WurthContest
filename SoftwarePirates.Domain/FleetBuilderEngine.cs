@@ -1,4 +1,5 @@
-﻿using SoftwarePirates.Models;
+﻿using SoftwarePirates.Domain.Modifiers;
+using SoftwarePirates.Models;
 using SoftwarePirates.Transfer;
 using System.Collections.Immutable;
 
@@ -111,8 +112,11 @@ namespace SoftwarePirates.Domain
             int crippled = Math.Max(Math.Min(crew - inoperable, idealCrew - minCrew), 0);
             int functional = Math.Max(crew - crippled - inoperable, 0);
             int durability = 0;
-            if (modifiers.Contains("Reinforced"))
-            {
+
+            var modifierList = ParseModifiersForShip(modifiers);
+
+            if (modifierList.Reinforced) 
+            {  
                 durability = Durabilities.IndexOf(shipTypeData["Durability"]) + 1;
             }
             else
@@ -124,7 +128,7 @@ namespace SoftwarePirates.Domain
             {
                 ApIcon = shipTypeData["ApIcon"],
                 CannonAccuracy = "Medium",
-                CannonDamage = modifiers.Contains("Big guns") || shipTypeData["Ship Type"] == "War Galleon" ? "High" : "Medium",
+                CannonDamage = modifierList.BigGuns || shipTypeData["Ship Type"] == ShipTypes.WarGalleon.GetDescription() ? "High" : "Medium",
                 Cannons = cannons,
                 ComparativeSpeed = shipTypeData["Comparative Speed"],
                 Cost = baseCost,
@@ -139,15 +143,36 @@ namespace SoftwarePirates.Domain
                 MinCrew = minCrew,
                 Modifiers = modifiers,
                 Name = name,
-                PirateDamage = modifiers.Contains("Elite") ? "High" : "Medium",
+                PirateDamage = modifierList.Elite ? "High" : "Medium",
                 SalePrice = baseCost,
-                ShipType = shipTypeData["Ship Type"]
+                ShipType = shipTypeData["Ship Type"],
+                ModifierList = modifierList,
             };
 
             ship.Cost = CalculateShipCost(ship);
 
             return ship;
         }
+
+        private (bool Reinforced, bool BigGuns, bool Elite) ParseModifiersForShip(string modifiers)
+        {
+            var modifiersTuple = (false, false, false);
+            if (modifiers.Contains("Reinforced"))
+            {
+                modifiersTuple.Item1 = true;
+            }
+            if(modifiers.Contains("Big Guns"))
+            {
+                modifiersTuple.Item2 = true;
+            }
+            if (modifiers.Contains("Elite"))
+            {
+                modifiersTuple.Item3 = true;
+            }
+
+            return modifiersTuple;
+        }
+
         private static int CalculateShipCost(Ship ship)
         {
             int baseCost = ship.SalePrice;
