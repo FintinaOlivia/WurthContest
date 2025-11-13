@@ -127,10 +127,12 @@ namespace SoftwarePirates.Domain
             Ship ship = new()
             {
                 ApIcon = shipTypeData["ApIcon"],
-                CannonAccuracy = "Medium",
-                CannonDamage = modifierList.BigGuns || shipTypeData["Ship Type"] == ShipTypes.WarGalleon.GetDescription() ? "High" : "Medium",
+                CannonAccuracies = CannonAccuracies.Medium,
+                CannonDamages = modifierList.BigGuns || shipTypeData["Ship Type"] == ShipTypes.WarGalleon.GetDescription() 
+                    ? CannonDamages.High : CannonDamages.Medium,
                 Cannons = cannons,
-                ComparativeSpeed = shipTypeData["Comparative Speed"],
+                ComparativeSpeeds = Enum.TryParse<ComparativeSpeeds>(
+                    shipTypeData["Comparative Speed"].Replace(" ", ""), true, out var speed) ? speed : ComparativeSpeeds.Medium,
                 Cost = baseCost,
                 Crew = crew,
                 CrippledCrew = crippled,
@@ -139,11 +141,12 @@ namespace SoftwarePirates.Domain
                 FunctionalCrew = functional,
                 IdealCrew = idealCrew,
                 InoperableCrew = inoperable,
-                Manueverability = shipTypeData["Manueverability"],
+                Manueverabilities = Enum.TryParse<Maneuverabilities>(
+                    shipTypeData["Manueverability"].Replace(" ", ""), true, out var man) ? man : Maneuverabilities.Medium,
                 MinCrew = minCrew,
                 Modifiers = modifiers,
                 Name = name,
-                PirateDamage = modifierList.Elite ? "High" : "Medium",
+                PirateDamages = modifierList.Elite ? PirateDamages.High : PirateDamages.Medium,
                 SalePrice = baseCost,
                 ShipType = shipTypeData["Ship Type"],
                 ModifierList = modifierList,

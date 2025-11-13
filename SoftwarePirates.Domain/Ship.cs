@@ -25,15 +25,50 @@ namespace SoftwarePirates.Domain
 
         public int Cannons { get; set; }
 
-        public string CannonAccuracy { get; set; } = string.Empty;
+        private CannonAccuracies _cannonAccuracy; 
+        public CannonAccuracies CannonAccuracies
+        { 
+            get => _cannonAccuracy; 
+            set => _cannonAccuracy = value; 
+        }
+        public string CannonAccuracy => _cannonAccuracy.GetDescription();
 
-        public string CannonDamage { get; set; } = string.Empty;
+        private CannonDamages _cannonDamage;
+        public CannonDamages CannonDamages
+        {
+            get => _cannonDamage;
+            set => _cannonDamage = value;
+        }
+        public string CannonDamage => _cannonDamage.GetDescription();
 
-        public string PirateDamage { get; set; } = string.Empty;
+        private PirateDamages _pirateDamage;
+        public PirateDamages PirateDamages
+        {
+            get => _pirateDamage;
+            set => _pirateDamage = value;
+        }
 
-        public string Manueverability { get; set; } = string.Empty;
+        public string PirateDamage => _pirateDamage.GetDescription();
 
-        public string ComparativeSpeed { get; set; } = string.Empty;
+
+        private Maneuverabilities _manueverability;
+        public Maneuverabilities Manueverabilities
+        {
+            get => _manueverability;
+            set => _manueverability = value;
+        }
+
+        public string Manueverability => _manueverability.GetDescription();
+
+
+        private ComparativeSpeeds _comparativeSpeed;
+        public ComparativeSpeeds ComparativeSpeeds
+        {
+            get => _comparativeSpeed;
+            set => _comparativeSpeed = value;
+        }
+
+        public string ComparativeSpeed => _comparativeSpeed.GetDescription();
 
         public int Crew { get; set; }
 
