@@ -19,7 +19,8 @@ namespace SoftwarePirates.Domain
                 MinCrew = 6,
                 IdealCrew = 36,
                 CargoCapacity = 25,
-                SalePrice = 225
+                SalePrice = 225,
+                TypeName = "Pinnace"
             },
             new Ship
             {
@@ -34,7 +35,8 @@ namespace SoftwarePirates.Domain
                 MinCrew = 8,
                 IdealCrew = 44,
                 CargoCapacity = 40,
-                SalePrice = 300
+                SalePrice = 300,
+                TypeName = "Sloop"
             },
             new Ship
             {
@@ -50,7 +52,8 @@ namespace SoftwarePirates.Domain
                 MinCrew = 13,
                 IdealCrew = 107,
                 CargoCapacity = 90,
-                SalePrice = 500
+                SalePrice = 500,
+                TypeName = "War Galleon"
             }
 
         };
@@ -63,7 +66,23 @@ namespace SoftwarePirates.Domain
 
         public IEnumerable<IDictionary<string, string>> GetShipTypeData()
         {
-            return _shipTypes;
+            return _shipTypes
+                .Select(s => new Dictionary<string, string>
+                {
+                    { "ApIcon", s.ApIcon },
+                    { "Ship Type", s.ShipType },
+                    { "Physical Size", s.PhysicalSize },
+                    { "Manueverability", s.Manueverability },
+                    { "Durability", s.Durability },
+                    { "Comparative Speed", s.ComparativeSpeed },
+                    { "Max Cannons", s.Cannons.ToString() },
+                    { "Max Crew", s.MaxCrew.ToString() },
+                    { "Min Crew", s.MinCrew.ToString() },
+                    { "Ideal Crew", s.IdealCrew.ToString() },
+                    { "Cargo Capacity", s.CargoCapacity.ToString() },   
+                    { "Sale Price", s.SalePrice.ToString() }
+                })
+                .ToList();
         }
 
         public IEnumerable<string> GetShipTypeSelectOptions()
