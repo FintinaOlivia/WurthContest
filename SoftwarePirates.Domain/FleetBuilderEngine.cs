@@ -161,7 +161,7 @@ namespace SoftwarePirates.Domain
             {
                 modifiersTuple.Item1 = true;
             }
-            if(modifiers.Contains("Big Guns"))
+            if(modifiers.Contains("Big guns"))
             {
                 modifiersTuple.Item2 = true;
             }
@@ -183,17 +183,17 @@ namespace SoftwarePirates.Domain
 
             var costBuilder = new ShipCostBuilder(baseCost, cannons, crew);
 
-            if (modifiers.Contains("Reinforced"))
+            if (ship.ModifierList.Reinforced)
             {
                 costBuilder.WithReinforced();
             }
 
-            if (modifiers.Contains("Big guns"))
+            if (ship.ModifierList.BigGuns)
             {
                 costBuilder.WithBigGuns();
             }
 
-            if (modifiers.Contains("Elite"))
+            if (ship.ModifierList.Elite)
             {
                costBuilder.WithEliteCrew();
             }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftwarePirates.Web.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6407700c6734e0cb753c056a17fffd916a9e3e8c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f08b3ce493b7fed9a2815c44e3810acbf7f72529")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftwarePirates.Web.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftwarePirates.Web.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
