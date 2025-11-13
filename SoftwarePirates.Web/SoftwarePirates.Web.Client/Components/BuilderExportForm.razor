@@ -1,0 +1,11 @@
+﻿<h2>Export</h2>
+<form>
+    <div class="input-group">
+        <span class="input-group-text">Export text</span>
+        <textarea rows="10" value="@ExportText" readonly="readonly" class="form-control" aria-label="Export text"></textarea>
+    </div>
+</form>
+@code {
+    [Parameter]
+    public string? ExportText { get; set; }
+}

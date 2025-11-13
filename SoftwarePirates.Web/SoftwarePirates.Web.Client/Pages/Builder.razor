@@ -1,0 +1,101 @@
+﻿@page "/builder"
+@rendermode InteractiveAuto
+
+<PageTitle>Fleet Builder</PageTitle>
+
+<div class="btn-group float-end" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary" @onclick="(() => ChangeMode(EDITMODE))">Edit</button>
+    <button type="button" class="btn btn-primary" @onclick="(() => ChangeMode(IMPORTMODE))">Import</button>
+    <button type="button" class="btn btn-primary" @onclick="(() => ChangeMode(EXPORTMODE))">Export</button>
+    <button type="button" class="btn btn-primary" @onclick="(() => ChangeMode(BATTLESHEETMODE))">Battle Sheet</button>
+</div>
+
+<h1><span style="font-family: Armadapirata">w</span> Fleet Builder</h1>
+
+<ConditionalDisplayChild DisplayChild="Mode == IMPORTMODE">
+    <BuilderImportForm FleetBuilderEngine="FleetBuilderEngine" ImportClick="RunImportFleet" />
+</ConditionalDisplayChild>
+
+<ConditionalDisplayChild DisplayChild="Mode == EXPORTMODE">
+    <BuilderExportForm ExportText="@FleetBuilderEngine.ExportText" />
+</ConditionalDisplayChild>
+
+<ConditionalDisplayChild DisplayChild="Mode == BATTLESHEETMODE">
+    <h2>
+        @FleetBuilderEngine.FleetName
+        <span class="badge position-absolute end-0 rounded-pill bg-dark">
+            @FleetBuilderEngine.FleetExpense.ToString("n0")
+        </span>
+    </h2>
+    <div class="row">
+        @foreach (var ship in FleetBuilderEngine.FleetBattleModels)
+        {
+            <BattleCard Ship="ship" />
+        }
+    </div>
+</ConditionalDisplayChild>
+
+<ConditionalDisplayChild DisplayChild="Mode == EDITMODE">
+    @if (string.IsNullOrWhiteSpace(FleetBuilderEngine.FleetName))
+    {
+        <BuilderFleetNameForm FleetBuilderEngine="FleetBuilderEngine" ButtonClick="Refresh" />
+    }
+    else
+    {
+        <h2>@FleetBuilderEngine.FleetName</h2>
+
+        @foreach (var alert in AlertEngine.AlertMessages)
+        {
+            <AlertDismissableDiv AlertModel="alert" DismissAlertClick="AlertEngine.RemoveMessage" />
+        }
+
+        <p>
+            Remaining Budget: @FleetBuilderEngine.RemainingBudget.ToString("n0")
+        </p>
+
+        @if (FleetBuilderEngine.IsOverBudget())
+        {
+            <div class="alert alert-danger" role="alert">
+                You have gone over budget!
+            </div>
+        }
+
+        <FleetTable Ships="FleetBuilderEngine.FleetDisplayModels" />
+
+        <ShipEditor AddClick="FleetBuilderEngine.AddShipToFleet" Ship="FleetBuilderEngine.ShipEdit" ShipTypeOptions="FleetBuilderEngine.ShipTypeOptions" />
+    }
+</ConditionalDisplayChild>
+
+@code {
+    private const string BATTLESHEETMODE = "BattleSheet";
+    private const string EDITMODE = "Edit";
+    private const string EXPORTMODE = "Export";
+    private const string IMPORTMODE = "Import";
+
+    private IAlertEngine AlertEngine;
+    private IFleetBuilderEngine FleetBuilderEngine;
+
+    public Builder()
+    {
+        AlertEngine = new AlertEngine();
+        FleetBuilderEngine = new FleetBuilderEngine(AlertEngine);
+    }
+
+    private string Mode { get; set; } = EDITMODE;
+
+    private void ChangeMode(string mode)
+    {
+        Mode = mode;
+    }
+
+    private void Refresh()
+    {
+        StateHasChanged();
+    }
+
+    private void RunImportFleet()
+    {
+        FleetBuilderEngine.ImportFleet();
+        Mode = EDITMODE;
+    }
+}

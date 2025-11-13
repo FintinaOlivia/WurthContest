@@ -1,0 +1,19 @@
+﻿@page "/shiptypes"
+@rendermode InteractiveAuto
+
+<PageTitle>Ships</PageTitle>
+
+<h1><span style="font-family: Armadapirata">1</span> Ship Types</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var shipType in shipTypeService.GetCards())
+        {
+            <ShipTypeCard ShipTypeCardModel="shipType" />
+        }
+    </div>
+</div>
+
+@code {
+    private IShipTypeService shipTypeService => new ShipTypeService();
+}

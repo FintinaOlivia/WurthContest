@@ -1,0 +1,197 @@
+﻿using SoftwarePirates.Models;
+using SoftwarePirates.Transfer;
+using System.Collections.Immutable;
+
+namespace SoftwarePirates.Domain
+{
+    public class FleetBuilderEngine : IFleetBuilderEngine
+    {
+        #region const
+        private const int CANNONSTANDARDCOST = 20;
+        private const int CREWSTANDARDCOST = 10;
+        private const int DURABILITYCOUNTERS = 10;
+        #endregion
+
+        #region services
+        private readonly IAlertEngine _alertEngine;
+        private readonly ShipTypeService shipTypeService = new();
+        private readonly ITransferService transferService = new TransferService();
+        #endregion
+
+        #region fields
+        private static ImmutableList<string> Durabilities =>
+        [
+            "Very Low",
+            "Low",
+            "Medium",
+            "High",
+            "Very High",
+            "Very High Plus"
+        ];
+        private List<Ship> fleetShips { get; set; } = [];
+        #endregion
+
+        #region cTor
+        public FleetBuilderEngine(IAlertEngine alertEngine)
+        {
+            _alertEngine = alertEngine;
+        }
+        #endregion
+
+        #region properties
+        public int FleetBudget => 10000;
+        public int FleetExpense => fleetShips.Sum(s => CalculateShipCost(s));
+        public string FleetName { get; set; } = string.Empty;
+        public string ImportText { get; set; } = string.Empty;
+        private ShipEditModel? shipEdit;
+        public IShipEditModel ShipEdit { get { return shipEdit is null ? (shipEdit = new ShipEditModel(shipTypeService)) : shipEdit; } }
+        public string ExportText => transferService.GenerateExportText(FleetName, FleetDisplayModels);
+        public IEnumerable<IShipBattleModel> FleetBattleModels => fleetShips;
+        public IEnumerable<IShipDisplayModel> FleetDisplayModels => fleetShips;
+        public int RemainingBudget => FleetBudget - FleetExpense;
+        public IEnumerable<string> ShipTypeOptions => shipTypeService.GetShipTypeSelectOptions();
+        #endregion
+
+        #region public methods
+        public void AddShipToFleet()
+        {
+            Ship ship = BuildShip(ShipEdit.Name, ShipEdit.Modifiers, ShipEdit.ShipType, ShipEdit.Cannons, ShipEdit.Crew);
+
+            fleetShips.Add(ship);
+            
+            shipEdit = null;
+        }
+        public void ImportFleet()
+        {
+            _alertEngine.ClearMessages();
+
+            if (!string.IsNullOrWhiteSpace(ImportText))
+            {
+                var result = transferService.GetImportResult(ImportText);
+
+                FleetName = result.FleetName;
+                fleetShips = [];
+
+                var shipNames = new List<string>();
+
+                if (result.ShipLines.Count > 0)
+                {
+                    for (int n = 0; n < result.ShipLines.Count; n++)
+                    {
+                        var shipLine = result.ShipLines[n];
+
+                        if (shipNames.Contains(shipLine.Name))
+                        {
+                            _alertEngine.AddDangerMessage($"Duplicate ship name specified: {shipLine.Name}");
+                        }
+                        else
+                        {
+                            shipNames.Add(shipLine.Name);
+
+                            Ship ship = BuildShip(shipLine.Name, shipLine.Modifiers, shipLine.ShipType, shipLine.Cannons, shipLine.Crew);
+
+                            fleetShips.Add(ship);
+                        }
+                    }
+
+                    foreach (var error in result.LineErrors)
+                    {
+                        _alertEngine.AddDangerMessage(error);
+                    }
+                }
+            }
+        }
+        public bool IsOverBudget() => RemainingBudget < 0;
+        #endregion
+
+        #region private methods
+        private Ship BuildShip(string name, string modifiers, string shipType, int cannons, int crew)
+        {
+            var shipTypeData = shipTypeService.GetShipTypeData().Where(s => s["Ship Type"] == shipType).First();
+
+            int baseCost = int.TryParse(shipTypeData["Sale Price"], out int i) ? i : 0;
+            int minCrew = int.TryParse(shipTypeData["Min Crew"], out int b) ? b : 1;
+            int idealCrew = int.TryParse(shipTypeData["Ideal Crew"], out int c) ? c : 1;
+            int inoperable = Math.Min(crew, minCrew - 1);
+            int crippled = Math.Max(Math.Min(crew - inoperable, idealCrew - minCrew), 0);
+            int functional = Math.Max(crew - crippled - inoperable, 0);
+            int durability = 0;
+            if (modifiers.Contains("Reinforced"))
+            {
+                durability = Durabilities.IndexOf(shipTypeData["Durability"]) + 1;
+            }
+            else
+            {
+                durability = Durabilities.IndexOf(shipTypeData["Durability"]);
+            }
+
+            Ship ship = new()
+            {
+                ApIcon = shipTypeData["ApIcon"],
+                CannonAccuracy = "Medium",
+                CannonDamage = modifiers.Contains("Big guns") || shipTypeData["Ship Type"] == "War Galleon" ? "High" : "Medium",
+                Cannons = cannons,
+                ComparativeSpeed = shipTypeData["Comparative Speed"],
+                Cost = baseCost,
+                Crew = crew,
+                CrippledCrew = crippled,
+                Durability = Durabilities[durability],
+                DurabilityCounter = (durability + 1) * DURABILITYCOUNTERS,
+                FunctionalCrew = functional,
+                IdealCrew = idealCrew,
+                InoperableCrew = inoperable,
+                Manueverability = shipTypeData["Manueverability"],
+                MinCrew = minCrew,
+                Modifiers = modifiers,
+                Name = name,
+                PirateDamage = modifiers.Contains("Elite") ? "High" : "Medium",
+                SalePrice = baseCost,
+                ShipType = shipTypeData["Ship Type"]
+            };
+
+            ship.Cost = CalculateShipCost(ship);
+
+            return ship;
+        }
+        private static int CalculateShipCost(Ship ship)
+        {
+            int baseCost = ship.SalePrice;
+            int cannons = ship.Cannons;
+            int crew = ship.Crew;
+
+            int total = 0;
+            string modifiers = ship.Modifiers;
+
+            if (modifiers.Contains("Reinforced"))
+            {
+                total += (int)Math.Round(baseCost * 1.1);
+            }
+            else
+            {
+                total += baseCost;
+            }
+
+            if (modifiers.Contains("Big guns"))
+            {
+                total += cannons * 30;
+            }
+            else
+            {
+                total += cannons * CANNONSTANDARDCOST;
+            }
+
+            if (modifiers.Contains("Elite"))
+            {
+                total += crew * 15;
+            }
+            else
+            {
+                total += crew * CREWSTANDARDCOST;
+            }
+
+            return total;
+        }
+        #endregion
+
+    }
+}

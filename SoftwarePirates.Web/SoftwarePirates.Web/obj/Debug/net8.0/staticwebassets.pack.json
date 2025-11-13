@@ -1,0 +1,81 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SoftwarePirates.Web.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SoftwarePirates.Web.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\fonts\\Armadapirata-GOyD.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Armadapirata-GOyD.ttf"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\AddShipToFleet.png",
+      "PackagePath": "staticwebassets\\images\\AddShipToFleet.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\BuilderScreen.png",
+      "PackagePath": "staticwebassets\\images\\BuilderScreen.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\Export.png",
+      "PackagePath": "staticwebassets\\images\\Export.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\FleetBattleSheet.png",
+      "PackagePath": "staticwebassets\\images\\FleetBattleSheet.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\Import.png",
+      "PackagePath": "staticwebassets\\images\\Import.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\ModifierCard.png",
+      "PackagePath": "staticwebassets\\images\\ModifierCard.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\NameFleet.png",
+      "PackagePath": "staticwebassets\\images\\NameFleet.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\ShipTypeCard.png",
+      "PackagePath": "staticwebassets\\images\\ShipTypeCard.png"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web\\wwwroot\\images\\it_does_run.jpg",
+      "PackagePath": "staticwebassets\\images\\it_does_run.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SoftwarePirates.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SoftwarePirates.Web.props",
+      "PackagePath": "build\\SoftwarePirates.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SoftwarePirates.Web.props",
+      "PackagePath": "buildMultiTargeting\\SoftwarePirates.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SoftwarePirates.Web.props",
+      "PackagePath": "buildTransitive\\SoftwarePirates.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

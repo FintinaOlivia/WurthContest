@@ -1,0 +1,18 @@
+﻿@if (FleetBuilderEngine is not null)
+{
+    <h2>Import</h2>
+    <form>
+        <div class="input-group">
+            <span class="input-group-text">Import text</span>
+            <textarea rows="10" @bind="FleetBuilderEngine.ImportText" class="form-control" aria-label="Import text"></textarea>
+        </div>
+    </form>
+    <button type="button" class="btn btn-primary" @onclick="ImportClick">Import</button>
+}
+@code {
+    [Parameter]
+    public IFleetBuilderEngine? FleetBuilderEngine { get; set; }
+
+    [Parameter]
+    public EventCallback ImportClick { get; set; }
+}

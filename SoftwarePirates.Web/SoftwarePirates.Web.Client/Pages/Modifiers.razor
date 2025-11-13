@@ -1,0 +1,17 @@
+﻿@page "/modifiers"
+<PageTitle>Modifiers</PageTitle>
+
+<h1><span style="font-family: Armadapirata">3</span> Modifiers</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var modifier in modifierService.GetCards())
+        {
+            <ModifierCard Modifier="modifier"/>
+        }
+    </div>
+</div>
+
+@code {
+    private IModifierService modifierService => new ModifierService();
+}

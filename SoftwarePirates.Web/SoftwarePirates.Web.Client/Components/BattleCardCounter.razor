@@ -1,0 +1,28 @@
+﻿@if (Counters > 0)
+{
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-11">
+            <span>@CounterTitle (@Counters)</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-11">
+            @for (int i = 1; i <= Counters; i++)
+            {
+                int spacing = i % 10 == 0 ? 5 : 0;
+                <small><span style="margin-right:@(spacing)px" class="bi bi-circle"></span></small>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string CounterTitle { get; set; } = string.Empty;
+    [Parameter]
+    public int Counters { get; set; }
+}

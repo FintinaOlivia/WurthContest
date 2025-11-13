@@ -1,0 +1,33 @@
+﻿@if (Ships is not null)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Ship Name</th>
+                <th scope="col">Ship Type</th>
+                <th scope="col">Cannons</th>
+                <th scope="col">Crew</th>
+                <th scope="col">Modifiers</th>
+                <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ship in Ships)
+            {
+                <tr>
+                    <th scope="row">@ship.Name</th>
+                    <td>@ship.ShipType</td>
+                    <td>@ship.Cannons</td>
+                    <td>@ship.Crew</td>
+                    <td>@ship.Modifiers</td>
+                    <td>@ship.Cost.ToString("n0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public IEnumerable<IShipDisplayModel>? Ships { get; set; }
+}

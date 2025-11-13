@@ -1,0 +1,71 @@
+﻿@if (Ship is not null)
+{
+    <div class="card">
+        <h5 class="card-header">Ship Editor</h5>
+        <div class="card-body">
+            <h5 class="card-title">Add a Ship for your fleet</h5>
+            <form>
+                <div class="mb-3">
+                    <label for="shipName" class="form-label">Ship name</label>
+                    <input type="text" @bind="Ship.Name" class="form-control" id="shipName" aria-describedby="shipNameHelp">
+                    <div id="shipNameHelp" class="form-text">Select a unique name for your ship to join the fleet.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="shipModifiers" class="form-label">Modifiers</label>
+                    <input type="text" @bind="Ship.Modifiers" class="form-control" id="shipModifiers" aria-describedby="shipModifiersHelp">
+                    <div id="shipModifiersHelp" class="form-text">See Modifiers page for valid options. Separate modifiers by a comma to apply modifiers to this ship.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="shipType" class="form-label">Ship type</label>
+                    <select class="form-select" aria-label="Select ship type" name="shipType" @bind="Ship.ShipType">
+                        <option value="">Select a ship type</option>
+                        @if (ShipTypeOptions is not null)
+                        {
+                            foreach (var shipTypeOption in ShipTypeOptions)
+                            {
+                                <option value="@shipTypeOption">@shipTypeOption</option>
+                            }
+                        }
+                    </select>
+                </div>
+                @if (Ship.DisplayDependentOptions())
+                {
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Cannons</label>
+                        <select class="form-select" aria-label="Select ship type" name="cannons" @bind="Ship.Cannons">
+                            @for (int i = 0; i <= Ship.MaxCannons; i += 2)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Crew</label>
+                        <select class="form-select" aria-label="Select ship type" name="crew" @bind="Ship.Crew">
+                            @for (int i = Ship.MinCrew; i <= Ship.MaxCrew; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                }
+            </form>
+
+            @if (Ship.DisplayAddToFleet())
+            {
+                <button class="btn btn-primary" @onclick="AddClick">Add to fleet</button>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public EventCallback AddClick { get; set; }
+
+    [Parameter]
+    public IShipEditModel? Ship { get; set; }
+
+    [Parameter]
+    public IEnumerable<string>? ShipTypeOptions { get; set; }
+}

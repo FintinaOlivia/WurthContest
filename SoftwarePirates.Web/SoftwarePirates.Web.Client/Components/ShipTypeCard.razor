@@ -1,0 +1,36 @@
+﻿<div class="card col-4">
+    <div class="card-header text-center">
+        <h5 class="card-title"><span style="font-family: Armadapirata">@ShipTypeCardModel?.ApIcon</span> @ShipTypeCardModel?.TypeName</h5>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr><td><b>Physical Size:</b></td><td>@ShipTypeCardModel?.PhysicalSize</td></tr>
+                <tr><td><b>Manueverability:</b></td><td>@ShipTypeCardModel?.Manueverability</td></tr>
+                <tr><td><b>Durability:</b></td><td>@ShipTypeCardModel?.Durability</td></tr>
+                <tr><td><b>Comparative Speed:</b></td><td>@ShipTypeCardModel?.ComparativeSpeed</td></tr>
+                <tr><td><b>Max Cannons:</b></td><td>@ShipTypeCardModel?.MaxCannons</td></tr>
+                <tr><td><b>Max Crew:</b></td><td>@ShipTypeCardModel?.MaxCrew</td></tr>
+                <tr><td><b>Min Crew:</b></td><td>@ShipTypeCardModel?.MinCrew</td></tr>
+                <tr><td><b>Ideal Crew:</b></td><td>@ShipTypeCardModel?.IdealCrew</td></tr>
+                <tr><td><b>Cargo Capacity:</b></td><td>@ShipTypeCardModel?.CargoCapacity</td></tr>
+                <tr><td><b>Sale Price:</b></td><td>@ShipTypeCardModel?.SalePrice.ToString("n0")</td></tr>
+            </tbody>
+        </table>
+        @if (ShipTypeCardModel?.HasNotes() ?? false)
+        {
+            <em>Notes</em>
+            <ul>
+                @foreach (var note in ShipTypeCardModel?.Notes ?? new string[]{})
+                {
+                    <li>@note</li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public IShipTypeCardModel? ShipTypeCardModel { get; set; }
+}

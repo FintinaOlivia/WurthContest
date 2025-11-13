@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web.Client\\obj\\Debug\\net8.0\\compressed\\izbn4jfxa6.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web.Client\\wwwroot\\appsettings.Development.json",
+      "PackagePath": "staticwebassets\\appsettings.Development.json"
+    },
+    {
+      "Id": "C:\\Users\\oliviafintina\\Documents\\WurthContest\\SoftwarePirates.Web\\SoftwarePirates.Web.Client\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SoftwarePirates.Web.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SoftwarePirates.Web.Client.props",
+      "PackagePath": "build\\SoftwarePirates.Web.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SoftwarePirates.Web.Client.props",
+      "PackagePath": "buildMultiTargeting\\SoftwarePirates.Web.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SoftwarePirates.Web.Client.props",
+      "PackagePath": "buildTransitive\\SoftwarePirates.Web.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

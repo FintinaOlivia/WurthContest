@@ -1,0 +1,117 @@
+﻿@if (Ship is not null)
+{
+    <div class="card col-6">
+        <h5 class="card-header">
+            <span style="font-family: Armadapirata">@Ship.ApIcon</span> @Ship.Name
+            <span class="badge position-absolute end-0  rounded-pill bg-dark">
+                @Ship.Cost.ToString("n0")
+            </span>
+        </h5>
+        <div class="card-body">
+            <h5 class="card-title">@Ship.ShipType | Modifiers: @Ship.Modifiers</h5>
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Attack</h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Cannon Count</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.Cannons
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Cannon Accuracy</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.CannonAccuracy
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Cannon Damage</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.CannonDamage
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Pirate Damage</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.PirateDamage
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Movement</h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Manueverability</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.Manueverability
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Comparative Speed</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.ComparativeSpeed
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Viability</h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Crew (Min/Ideal)</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.Crew (@Ship.MinCrew/@Ship.IdealCrew)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span>Crew Counter</span>
+                            </div>
+                        </div>
+
+                        <BattleCardCounter CounterTitle="Inoperable Ship Crew Counters" Counters="Ship.InoperableCrew" />
+                        <BattleCardCounter CounterTitle="Crippled Ship Crew Counters" Counters="Ship.CrippledCrew" />
+                        <BattleCardCounter CounterTitle="Functional Ship Crew Counters" Counters="Ship.FunctionalCrew" />
+
+                        <div class="row">
+                            <div class="col-8">
+                                <span>Durability</span>
+                            </div>
+                            <div class="col-4">
+                                @Ship.Durability
+                            </div>
+                        </div>
+
+                        <BattleCardCounter CounterTitle="Durability Counters" Counters="Ship.DurabilityCounter" />
+
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public IShipBattleModel? Ship { get; set; }
+}

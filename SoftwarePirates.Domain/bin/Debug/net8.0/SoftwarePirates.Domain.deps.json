@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SoftwarePirates.Domain/1.0.0": {
+        "dependencies": {
+          "SoftwarePirates": "1.0.0",
+          "SoftwarePirates.Models": "1.0.0",
+          "SoftwarePirates.Transfer": "1.0.0"
+        },
+        "runtime": {
+          "SoftwarePirates.Domain.dll": {}
+        }
+      },
+      "SoftwarePirates/1.0.0": {
+        "runtime": {
+          "SoftwarePirates.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SoftwarePirates.Models/1.0.0": {
+        "dependencies": {
+          "SoftwarePirates": "1.0.0"
+        },
+        "runtime": {
+          "SoftwarePirates.Models.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SoftwarePirates.Transfer/1.0.0": {
+        "dependencies": {
+          "SoftwarePirates": "1.0.0"
+        },
+        "runtime": {
+          "SoftwarePirates.Transfer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SoftwarePirates.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SoftwarePirates/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SoftwarePirates.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SoftwarePirates.Transfer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

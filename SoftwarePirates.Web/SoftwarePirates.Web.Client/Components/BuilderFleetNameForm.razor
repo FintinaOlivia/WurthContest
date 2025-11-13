@@ -1,0 +1,18 @@
+﻿@if (FleetBuilderEngine is not null)
+{
+    <form>
+        <div class="mb-3">
+            <label for="fleetName" class="form-label">Fleet name</label>
+            <input type="text" @bind="FleetBuilderEngine.FleetName" class="form-control" id="fleetName" aria-describedby="fleetNameHelp">
+            <div id="fleetNameHelp" class="form-text">We need to know how to reference this fleet.</div>
+        </div>
+    </form>
+    <button type="button" class="btn btn-primary" @onclick="ButtonClick">Build fleet</button>
+}
+@code {
+    [Parameter]
+    public IFleetBuilderEngine? FleetBuilderEngine { get; set; }
+
+    [Parameter]
+    public EventCallback ButtonClick { get; set; }
+}

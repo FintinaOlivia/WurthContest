@@ -1,0 +1,12 @@
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\bin\Debug\net8.0\SoftwarePirates.deps.json
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\bin\Debug\net8.0\SoftwarePirates.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\bin\Debug\net8.0\SoftwarePirates.pdb
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.AssemblyInfoInputs.cache
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.AssemblyInfo.cs
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.csproj.CoreCompileInputs.cache
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.sourcelink.json
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\refint\SoftwarePirates.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\SoftwarePirates.pdb
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates\obj\Debug\net8.0\ref\SoftwarePirates.dll

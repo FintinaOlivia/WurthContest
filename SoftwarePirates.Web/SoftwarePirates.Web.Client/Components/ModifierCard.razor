@@ -1,0 +1,22 @@
+﻿@if (Modifier is not null)
+{
+    <div class="card col-3">
+        <div class="card-header text-center">
+            <h5 class="card-title">@Modifier.Title</h5>
+        </div>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-body-secondary">@Modifier.SubTitle</h6>
+            <ul>
+                @foreach (var effect in Modifier.Effects)
+                {
+                    <li>@effect</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public IModifierCardModel? Modifier { get; set; }
+}

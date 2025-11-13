@@ -1,0 +1,16 @@
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\bin\Debug\net8.0\SoftwarePirates.Alerts.deps.json
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\bin\Debug\net8.0\SoftwarePirates.Alerts.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\bin\Debug\net8.0\SoftwarePirates.Alerts.pdb
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\bin\Debug\net8.0\SoftwarePirates.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\bin\Debug\net8.0\SoftwarePirates.pdb
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.csproj.AssemblyReference.cache
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.AssemblyInfoInputs.cache
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.AssemblyInfo.cs
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.csproj.CoreCompileInputs.cache
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.sourcelink.json
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\Software.F5C96A02.Up2Date
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\refint\SoftwarePirates.Alerts.dll
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\SoftwarePirates.Alerts.pdb
+C:\Users\oliviafintina\Documents\WurthContest\SoftwarePirates.Alerts\obj\Debug\net8.0\ref\SoftwarePirates.Alerts.dll

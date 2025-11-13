@@ -1,0 +1,216 @@
+﻿@page "/rules"
+<h1><span class="bi bi-journal-check" aria-hidden="true"></span> Rules</h1>
+
+<h2>Game Components</h2>
+<dl>
+    <dt>Battle Card</dt>
+    <dd class="ms-3">
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/FleetBattleSheet.png" target="_blank">
+                        <img src="../images/FleetBattleSheet.png" class="img-thumbnail" alt="Fleet Battle Sheet">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    The Battle Card has all the information that is required for battles that take place during game play.
+                    The information generated on the site should be correct, but see the rule book for actual game play.
+                </div>
+            </div>
+        </div>
+    </dd>
+    <dt>Fleet</dt>
+    <dd class="ms-3">
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/BuilderScreen.png" target="_blank">
+                        <img src="../images/BuilderScreen.png" class="img-thumbnail" alt="Fleet Builder Screen">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    This is the collection of ships that are brought into game play. The total cost for the fleet should not exceed 10,000.
+                    The budget is not enforced, but a warning will be displayed if you exceed your budget.
+                </div>
+            </div>
+        </div>
+    </dd>
+    <dt>Modifier</dt>
+    <dd class="ms-3">
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/ModifierCard.png" target="_blank">
+                        <img src="../images/ModifierCard.png" class="img-thumbnail" alt="Modifier Card">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    The Modifier cards effect the attributes of the ship that they are applied to. The effects of the cards should be order
+                    independent, and it is possible that multiple cards can effect the same attributes of the ship.
+                </div>
+            </div>
+        </div>
+    </dd>
+    <dt>Ship</dt>
+    <dd class="ms-3">
+        A Ship should have a unique name within your Fleet for reference. When a Ship is referenced that is a specific Ship Type card
+        that optionally has Modifier cards applied to it. In addition to naming the ship you will need to determine exactly how many 
+        Crew and Cannons are aboard that specific Ship.
+    </dd>
+    <dt>Ship Type</dt>
+    <dd class="ms-3">
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/ShipTypeCard.png" target="_blank">
+                        <img src="../images/ShipTypeCard.png" class="img-thumbnail" alt="Ship Type Card">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    The Ship Type refers to the class or style of ship. This will give the standard set of attributes that come with that particular
+                    class of ship. For details on the attributes see the rule book.
+                </div>
+            </div>
+        </div>
+    </dd>
+</dl>
+
+<h2>Fleet building steps</h2>
+<ol>
+    <li>
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/NameFleet.png" target="_blank">
+                        <img src="../images/NameFleet.png" class="img-thumbnail" alt="Name the Fleet">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    First pick a name for your fleet that will be entered into the tournament
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        Select a name for your Ship
+    </li>
+    <li>
+        Pick a Ship Type card
+    </li>
+    <li>
+        Determine which, if any, Modifiers that you wish to apply to your ship
+    </li>
+    <li>
+        Determine the number of cannons to add to your ship. Cannons are assumed to be evenly distributed between sides of the ship, 
+        so you must choose an even number of cannons
+    </li>
+    <li>
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/AddShipToFleet.png" target="_blank">
+                        <img src="../images/AddShipToFleet.png" class="img-thumbnail" alt="Add Ship to Fleet">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    Select the total number of crew for your ship. You must choose to at least add the minimum amount for the Ship Type, however
+                    it is highly recommended that you add at least the Ideal Crew value of pirates otherwise your ship will not operate at full capacity.
+                </div>
+            </div>
+        </div>
+    </li>
+</ol>
+
+<h2>Ship Cost</h2>
+<p>
+    The following is the way that a Ships cost is determined.
+</p>
+<ol>
+    <li>
+        The base cost for your ship will be the Sale Price listed on the Ship Type card
+    </li>
+    <li>
+        Adjust the base cost of the ship based on any Modifier cards being played on the Ship
+    </li>
+    <li>
+        The standard cost of a cannon is 20 per cannon
+    </li>
+    <li>
+        Adjust the cost of the cannon by any Modifier cards on the Ship
+    </li>
+    <li>
+        Multiply the adjusted cost by the number of cannons added to the Ship
+    </li>
+    <li>
+        The standard cost of a crew member is 10 per crew member, and assumes food, wages and everything need for the crew
+    </li>
+    <li>
+        Adjust the cost per Crew based on any Modifier cards
+    </li>
+    <li>
+        Multiply the Adjusted cost by the total number of Crew added to the Ship
+    </li>
+    <li>
+        Sum up the cost of the Ship, Crew and Cannons
+    </li>
+    <li>
+        Apply any adjustments based on the Modifier cards in play that do not explicitly modify the Ship, Crew or Cannon costs 
+    </li>
+</ol>
+
+<h2>Site Options</h2>
+<dl>
+    <dt>Export</dt>
+    <dd class="ms-3">
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/Export.png" target="_blank">
+                        <img src="../images/Export.png" class="img-thumbnail" alt="Export">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    Click on the Export button to get a block of text to save the Fleet details.
+                </div>
+            </div>
+        </div>
+    </dd>
+    <dt>Import</dt>
+    <dd class="ms-3">
+        <div class="container">
+            <div class="row">
+                <div class="col col-4">
+                    <a href="../images/Import.png" target="_blank">
+                        <img src="../images/Import.png" class="img-thumbnail" alt="Import">
+                    </a>
+                </div>
+                <div class="col col-8">
+                    Paste the exported block of text into the import screen and click import to quickly load a Fleet.
+                    You can also modify the Fleet details in the block and easily import to edit Ships or the name of the Fleet.
+                </div>
+            </div>
+        </div>
+    </dd>
+</dl>
+
+<h2>Categories</h2>
+<dl>
+    <dt>Cannon Accuracies</dt>
+    <dd class="ms-3"><ul><li>Very Low</li><li>Low</li><li>Medium</li><li>High</li><li>Very High</li><li>Very High Plus</li></ul></dd>
+    <dt>Cannon Damages</dt>
+    <dd class="ms-3"><ul><li>Very Low</li><li>Low</li><li>Medium</li><li>High</li><li>Very High</li><li>Very High Plus</li></ul></dd>
+    <dt>Comparative Speeds</dt>
+    <dd class="ms-3"><ul><li>Drifting</li><li>Very Slow</li><li>Slow</li><li>Slow High</li><li>Medium</li><li>High</li><li>Very High</li><li>Very High Plus</li></ul></dd>
+    <dt>Durabilities</dt>
+    <dd class="ms-3"><ul><li>Very Low</li><li>Low</li><li>Medium</li><li>High</li><li>Very High</li><li>Very High Plus</li></ul></dd>
+    <dt>Manueverabilities</dt>
+    <dd class="ms-3"><ul><li>Very Low</li><li>Low</li><li>Medium</li><li>High</li><li>Very High</li><li>Very High Plus</li></ul></dd>
+    <dt>Physical Sizes</dt>
+    <dd class="ms-3"><ul><li>Very Small</li><li>Small</li><li>Medium</li><li>Large</li><li>Very Large</li><li>Very Large Plus</li></ul></dd>
+    <dt>Pirate Damages</dt>
+    <dd class="ms-3"><ul><li>Very Low</li><li>Low</li><li>Medium</li><li>High</li><li>Very High</li><li>Very High Plus</li></ul></dd>
+</dl>
+
+@code {
+
+}
