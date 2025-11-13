@@ -4,74 +4,61 @@ namespace SoftwarePirates.Domain
 {
     public class ShipTypeService : IShipTypeService
     {
-        private readonly List<Dictionary<string, string>> _shipTypes =
-        [
-            new Dictionary<string, string>
+        private readonly List<Ship> _shipTypes = new List<Ship>()
+        {
+            new Ship
             {
-                { "ApIcon", "8" },
-                { "Ship Type", "Pinnace" },
-                { "Physical Size", "Very Small" },
-                { "Manueverability", "Very High" },
-                { "Durability", "Very Low" },
-                { "Comparative Speed", "Very High" },
-                { "Max Cannons", "10" },
-                { "Max Crew", "60" },
-                { "Min Crew", "6" },
-                { "Ideal Crew", "36" },
-                { "Cargo Capacity", "25" },
-                { "Sale Price", "225" }
+                ApIcon = "8",
+                ShipType = "Pinnace",
+                PhysicalSize = "Very Small",
+                Manueverability = "Very High",
+                Durability = "Very Low",
+                ComparativeSpeed = "Very High",
+                MaxCannons = 10,
+                MaxCrew = 60,
+                MinCrew = 6,
+                IdealCrew = 36,
+                CargoCapacity = 25,
+                SalePrice = 225
             },
-            new Dictionary<string, string>
+            new Ship
             {
-                { "ApIcon", "Z" },
-                { "Ship Type", "Sloop" },
-                { "Physical Size", "Small" },
-                { "Manueverability", "High" },
-                { "Durability", "Low" },
-                { "Comparative Speed", "High" },
-                { "Max Cannons", "12" },
-                { "Max Crew", "75" },
-                { "Min Crew", "8" },
-                { "Ideal Crew", "44" },
-                { "Cargo Capacity", "40" },
-                { "Sale Price", "300" }
+                ApIcon = "Z",
+                ShipType = "Sloop",
+                PhysicalSize = "Small",
+                Manueverability = "High",
+                Durability = "Low",
+                ComparativeSpeed = "High",
+                MaxCannons = 12,
+                MaxCrew = 75,
+                MinCrew = 8,
+                IdealCrew = 44,
+                CargoCapacity = 40,
+                SalePrice = 300
             },
-            new Dictionary<string, string>
+            new Ship
             {
-                { "ApIcon", "P" },
-                { "Ship Type", "War Galleon" },
-                { "Physical Size", "Large" },
-                { "Manueverability", "Low" },
-                { "Durability", "High" },
-                { "Comparative Speed", "Slow High" },
-                { "Notes", "The default cannon damage is High" },
-                { "Max Cannons", "32" },
-                { "Max Crew", "200" },
-                { "Min Crew", "13" },
-                { "Ideal Crew", "107" },
-                { "Cargo Capacity", "90" },
-                { "Sale Price", "500" }
-            },
-        ];
+                ApIcon = "P",
+                ShipType = "War Galleon",
+                PhysicalSize = "Large",
+                Manueverability = "Low",
+                Durability = "High",
+                ComparativeSpeed = "Slow High", 
+                Notes = ["The default cannon damage is High"],
+                MaxCannons = 32,
+                MaxCrew = 200,
+                MinCrew = 13,
+                IdealCrew = 107,
+                CargoCapacity = 90,
+                SalePrice = 500
+            }
+
+        };
+
 
         public IEnumerable<IShipTypeCardModel> GetCards()
         {
-            return _shipTypes.Select(s => new ShipTypeCardModel
-            {
-                ApIcon = s["ApIcon"],
-                TypeName = s["Ship Type"],
-                PhysicalSize = s["Physical Size"],
-                Manueverability = s["Manueverability"],
-                Durability = s["Durability"],
-                ComparativeSpeed = s["Comparative Speed"],
-                Notes = s.TryGetValue("Notes", out string? notes) ? [notes] : null,
-                MaxCannons = int.TryParse(s["Max Cannons"], out int a) ? a : 0,
-                MaxCrew = int.TryParse(s["Max Crew"], out int b) ? b : 0,
-                MinCrew = int.TryParse(s["Min Crew"], out int c) ? c : 0,
-                IdealCrew = int.TryParse(s["Ideal Crew"], out int d) ? d : 0,
-                CargoCapacity = int.TryParse(s["Cargo Capacity"], out int e) ? e : 0,
-                SalePrice = int.TryParse(s["Sale Price"], out int f) ? f : 0,
-            });
+            return _shipTypes;
         }
 
         public IEnumerable<IDictionary<string, string>> GetShipTypeData()
@@ -81,7 +68,7 @@ namespace SoftwarePirates.Domain
 
         public IEnumerable<string> GetShipTypeSelectOptions()
         {
-            return _shipTypes.Select(sd => sd["Ship Type"]);
+            return _shipTypes.Select(sd => sd.ShipType);
         }
     }
 }

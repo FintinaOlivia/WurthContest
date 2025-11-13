@@ -1,6 +1,6 @@
 ﻿namespace SoftwarePirates.Domain
 {
-    public class Ship : IShipBattleModel, IShipDisplayModel
+    public class Ship : IShipBattleModel, IShipDisplayModel, IShipTypeCardModel
     {
         public string ApIcon { get; set; } = string.Empty;
 
@@ -9,6 +9,8 @@
         public int Cost { get; set; }
 
         public string ShipType { get; set; } = string.Empty;
+
+        public string PhysicalSize { get; set; } = string.Empty;
 
         public string Modifiers { get; set; } = string.Empty;
 
@@ -41,5 +43,20 @@
         public int DurabilityCounter { get; set; }
 
         public int SalePrice { get; set; }
+
+        public string TypeName { get; set; } = string.Empty;
+
+        public string[]? Notes { get; set; } = [];
+
+        public int MaxCannons { get; set; } = 0;
+
+        public int MaxCrew { get; set; } = 0;
+
+        public int CargoCapacity { get; set; } = 0;
+
+        public bool HasNotes()
+        {
+            return Notes?.Length != 0;
+        }
     }
 }

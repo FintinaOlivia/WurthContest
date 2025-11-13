@@ -43,6 +43,7 @@ namespace SoftwarePirates.Domain
         public int FleetExpense => fleetShips.Sum(s => CalculateShipCost(s));
         public string FleetName { get; set; } = string.Empty;
         public string ImportText { get; set; } = string.Empty;
+
         private ShipEditModel? shipEdit;
         public IShipEditModel ShipEdit { get { return shipEdit is null ? (shipEdit = new ShipEditModel(shipTypeService)) : shipEdit; } }
         public string ExportText => transferService.GenerateExportText(FleetName, FleetDisplayModels);
