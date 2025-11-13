@@ -115,21 +115,15 @@ namespace SoftwarePirates.Domain
 
             var modifierList = ParseModifiersForShip(modifiers);
 
-            if (modifierList.Reinforced) 
-            {  
-                durability = Durabilities.IndexOf(shipTypeData["Durability"]) + 1;
-            }
-            else
-            {
-                durability = Durabilities.IndexOf(shipTypeData["Durability"]);
-            }
+            PirateDamages pirateDamages;
+            CannonDamages cannonDamages;
+            ModiferBasedFields(shipTypeData, out durability, modifierList, out pirateDamages, out cannonDamages);
 
             Ship ship = new()
             {
                 ApIcon = shipTypeData["ApIcon"],
                 CannonAccuracies = CannonAccuracies.Medium,
-                CannonDamages = modifierList.BigGuns || shipTypeData["Ship Type"] == ShipTypes.WarGalleon.GetDescription() 
-                    ? CannonDamages.High : CannonDamages.Medium,
+                CannonDamages = cannonDamages,
                 Cannons = cannons,
                 ComparativeSpeeds = Enum.TryParse<ComparativeSpeeds>(
                     shipTypeData["Comparative Speed"].Replace(" ", ""), true, out var speed) ? speed : ComparativeSpeeds.Medium,
@@ -146,7 +140,7 @@ namespace SoftwarePirates.Domain
                 MinCrew = minCrew,
                 Modifiers = modifiers,
                 Name = name,
-                PirateDamages = modifierList.Elite ? PirateDamages.High : PirateDamages.Medium,
+                PirateDamages = pirateDamages,
                 SalePrice = baseCost,
                 ShipType = shipTypeData["Ship Type"],
                 ModifierList = modifierList,
@@ -155,6 +149,25 @@ namespace SoftwarePirates.Domain
             ship.Cost = CalculateShipCost(ship);
 
             return ship;
+        }
+
+        private static void ModiferBasedFields(IDictionary<string, string> shipTypeData, out int durability, (bool Reinforced, bool BigGuns, bool Elite) modifierList, out PirateDamages pirateDamages, out CannonDamages cannonDamages)
+        {
+            if (modifierList.Reinforced)
+            {
+                durability = Durabilities.IndexOf(shipTypeData["Durability"]) + 1;
+            }
+            else
+            {
+                durability = Durabilities.IndexOf(shipTypeData["Durability"]);
+            }
+
+            pirateDamages = modifierList.Elite ? PirateDamages.High : PirateDamages.Medium;
+            cannonDamages = CannonDamages.Medium;
+            if (modifierList.BigGuns || shipTypeData["Ship Type"] == ShipTypes.WarGalleon.GetDescription())
+            {
+                cannonDamages = CannonDamages.High;
+            }
         }
 
         private (bool Reinforced, bool BigGuns, bool Elite) ParseModifiersForShip(string modifiers)

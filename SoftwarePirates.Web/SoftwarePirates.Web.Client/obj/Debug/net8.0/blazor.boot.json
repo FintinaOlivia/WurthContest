@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "SoftwarePirates.Web.Client",
   "resources": {
-    "hash": "sha256-gDjU9qfOWQdPm7+iznreJfWoH2H7Yd/PY/g9Nk1NQ1Q=",
+    "hash": "sha256-kPur8xtatBdtyqMhpb96lUcd1GiyiGfV9c2ef2Wp5gs=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.hygvvtjsuf.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -210,18 +210,18 @@
       "System.Private.CoreLib.wasm": "sha256-NFj5WE5VLP2LptZIRJCUIc1AMk06FmxpsSILfPISwAw=",
       "SoftwarePirates.Alerts.wasm": "sha256-1FAPskSJU4Zq9ldPtO1PuewXdST6UGJZC0WY8XQBPC4=",
       "SoftwarePirates.wasm": "sha256-7FP+XxV0V9CAvYPJU1m4U92dAIGWNSvRhdlE+dxPEhY=",
-      "SoftwarePirates.Domain.wasm": "sha256-znQcan+WGCD+oDBeq8m0VM9yQyQazpCiRNM8WHfDRds=",
+      "SoftwarePirates.Domain.wasm": "sha256-bvqp6J773xlH61ZiENImdlDbo8S+5qDKOmtlrfbily8=",
       "SoftwarePirates.Models.wasm": "sha256-vxHoeSzrArqYFCms5gptDdxFeEI/OS5cRXnBrBlDiZY=",
       "SoftwarePirates.Transfer.wasm": "sha256-ECDD1czirg+o/wCPWgKMczEVj7BOO+CzDQvFSYMnQPk=",
-      "SoftwarePirates.Web.Client.wasm": "sha256-9nKCq6ou1dCe6/2vXVP2RHlvxo5bsF1DvaFhD0f2tdo="
+      "SoftwarePirates.Web.Client.wasm": "sha256-yIpUMgJG4KRHMs8oRjkWWVPWnYRwAGn+FT1tt8t2zKE="
     },
     "pdb": {
       "SoftwarePirates.Alerts.pdb": "sha256-UpBe13oMUOfhhzhlSVY1lAc9PC5ZmFJE20reqWYqK5Y=",
-      "SoftwarePirates.Domain.pdb": "sha256-uOdkpluEyLKrltKxuGIas84hEgJMr2Ui5oCiB6e+8Ws=",
+      "SoftwarePirates.Domain.pdb": "sha256-msQ8VmbBE1sERFLSeQD1rR2h1iFoCh10goFjabof8lI=",
       "SoftwarePirates.pdb": "sha256-Dmmyd5p1WWPaK6blPx43wxYoYXvotjxMWHVyBZ1I/50=",
       "SoftwarePirates.Models.pdb": "sha256-OYff5toekcahUoCnKinrABy52x5RDkseUu8ghnm+US0=",
       "SoftwarePirates.Transfer.pdb": "sha256-QnZX6MO5ZkFLPVN5t4akIvClloEnm/HIvP2DUgIB0RI=",
-      "SoftwarePirates.Web.Client.pdb": "sha256-dtrvrWyDPISytKJjzY3djxkS5qZu6Cy9B11uurLikPs="
+      "SoftwarePirates.Web.Client.pdb": "sha256-8jD3l1B3rt7muqQi29qYsj/WRVtUnRDlAxjQKx/blz8="
     }
   },
   "cacheBootResources": true,

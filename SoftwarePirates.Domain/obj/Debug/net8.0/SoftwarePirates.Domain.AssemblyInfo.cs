@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftwarePirates.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20e4cc6e1f43afc4904e2be4ed976901fd3d6e84")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e83d04b8e27a10af2bc4458b2e57ee4b2cf5fe13")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftwarePirates.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftwarePirates.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
