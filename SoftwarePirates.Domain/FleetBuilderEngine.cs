@@ -6,12 +6,6 @@ namespace SoftwarePirates.Domain
 {
     public class FleetBuilderEngine : IFleetBuilderEngine
     {
-        #region const
-        private const int CANNONSTANDARDCOST = 20;
-        private const int CREWSTANDARDCOST = 10;
-        private const int DURABILITYCOUNTERS = 10;
-        #endregion
-
         #region services
         private readonly IAlertEngine _alertEngine;
         private readonly ShipTypeService shipTypeService = new();
@@ -137,7 +131,7 @@ namespace SoftwarePirates.Domain
                 Crew = crew,
                 CrippledCrew = crippled,
                 Durability = Durabilities[durability],
-                DurabilityCounter = (durability + 1) * DURABILITYCOUNTERS,
+                DurabilityCounter = (durability + 1) * Constants.DURABILITYCOUNTERS,
                 FunctionalCrew = functional,
                 IdealCrew = idealCrew,
                 InoperableCrew = inoperable,
@@ -160,37 +154,26 @@ namespace SoftwarePirates.Domain
             int cannons = ship.Cannons;
             int crew = ship.Crew;
 
-            int total = 0;
             string modifiers = ship.Modifiers;
+
+            var costBuilder = new ShipCostBuilder(baseCost, cannons, crew);
 
             if (modifiers.Contains("Reinforced"))
             {
-                total += (int)Math.Round(baseCost * 1.1);
-            }
-            else
-            {
-                total += baseCost;
+                costBuilder.WithReinforced();
             }
 
             if (modifiers.Contains("Big guns"))
             {
-                total += cannons * 30;
-            }
-            else
-            {
-                total += cannons * CANNONSTANDARDCOST;
+                costBuilder.WithBigGuns();
             }
 
             if (modifiers.Contains("Elite"))
             {
-                total += crew * 15;
-            }
-            else
-            {
-                total += crew * CREWSTANDARDCOST;
+               costBuilder.WithEliteCrew();
             }
 
-            return total;
+            return costBuilder.GetCost();
         }
         #endregion
 

@@ -10,7 +10,7 @@ namespace SoftwarePirates.Domain
             {
                 ApIcon = "8",
                 ShipType = "Pinnace",
-                PhysicalSize = "Very Small",
+                PhysicalSizes = PhysicalSizes.VerySmall,
                 Manueverability = "Very High",
                 Durability = "Very Low",
                 ComparativeSpeed = "Very High",
@@ -26,7 +26,7 @@ namespace SoftwarePirates.Domain
             {
                 ApIcon = "Z",
                 ShipType = "Sloop",
-                PhysicalSize = "Small",
+                PhysicalSizes = PhysicalSizes.Small,
                 Manueverability = "High",
                 Durability = "Low",
                 ComparativeSpeed = "High",
@@ -42,7 +42,7 @@ namespace SoftwarePirates.Domain
             {
                 ApIcon = "P",
                 ShipType = "War Galleon",
-                PhysicalSize = "Large",
+                PhysicalSizes = PhysicalSizes.Large,
                 Manueverability = "Low",
                 Durability = "High",
                 ComparativeSpeed = "Slow High", 
@@ -71,7 +71,7 @@ namespace SoftwarePirates.Domain
                 {
                     { "ApIcon", s.ApIcon },
                     { "Ship Type", s.ShipType },
-                    { "Physical Size", s.PhysicalSize },
+                    { "Physical Size", s.PhysicalSize.ToString() },
                     { "Manueverability", s.Manueverability },
                     { "Durability", s.Durability },
                     { "Comparative Speed", s.ComparativeSpeed },
@@ -80,7 +80,8 @@ namespace SoftwarePirates.Domain
                     { "Min Crew", s.MinCrew.ToString() },
                     { "Ideal Crew", s.IdealCrew.ToString() },
                     { "Cargo Capacity", s.CargoCapacity.ToString() },   
-                    { "Sale Price", s.SalePrice.ToString() }
+                    { "Sale Price", s.SalePrice.ToString() },
+                    { "Cannon Accuracy", s.CannonAccuracy.ToString() },
                 })
                 .ToList();
         }

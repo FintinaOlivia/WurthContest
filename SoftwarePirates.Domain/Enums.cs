@@ -1,10 +1,23 @@
 ﻿
 using System.ComponentModel;
+using System.Reflection;
 
 namespace SoftwarePirates.Domain
 {
-    internal enum CannonAccuracies
+    public static class EnumExtensions
     {
+        public static string GetDescription(this Enum value)
+        {
+            var field = value.GetType().GetField(value.ToString());
+            var attribute = field?.GetCustomAttribute<DescriptionAttribute>();
+            return attribute?.Description ?? value.ToString();
+        }
+    }
+
+    public enum CannonAccuracies
+    {
+        [Description("")]
+        Default,
         [Description("Very Low")]
         VeryLow,
         [Description("Low")]
@@ -19,8 +32,10 @@ namespace SoftwarePirates.Domain
         VeryHighPlus
     }
 
-    internal enum CannonDamages
+    public enum CannonDamages
     {
+        [Description("")]
+        Default,
         [Description("Very Low")]
         VeryLow,
         [Description("Low")]
@@ -35,8 +50,10 @@ namespace SoftwarePirates.Domain
         VeryHighPlus
     }
 
-    internal enum ComparativeSpeeds
+    public enum ComparativeSpeeds
     {
+        [Description("")]
+        Default,
         [Description("Drifting")]
         Drifting,
         [Description("Very Slow")]
@@ -55,8 +72,10 @@ namespace SoftwarePirates.Domain
         VeryHighPlus
     }
 
-    internal enum Durabilities
+    public enum Durabilities
     {
+        [Description("")]
+        Default,
         [Description("Very Low")]
         VeryLow,
         [Description("Low")]
@@ -71,8 +90,10 @@ namespace SoftwarePirates.Domain
         VeryHighPlus
     }
 
-    internal enum Maneuverabilities
+    public enum Maneuverabilities
     {
+        [Description("")]
+        Default,
         [Description("Very Low")]
         VeryLow,
         [Description("Low")]
@@ -87,8 +108,10 @@ namespace SoftwarePirates.Domain
         VeryHighPlus
     }
 
-    internal enum PhysicalSizes
+    public enum PhysicalSizes
     {
+        [Description("")]
+        Default,
         [Description("Very Small")]
         VerySmall,
         [Description("Small")]
@@ -102,8 +125,10 @@ namespace SoftwarePirates.Domain
         [Description("Very Large Plus")]
         VeryLargePlus
     }
-    internal enum PirateDamages
+    public enum PirateDamages
     {
+        [Description("")]
+        Default,
         [Description("Very Low")]
         VeryLow,
         [Description("Low")]

@@ -10,7 +10,14 @@
 
         public string ShipType { get; set; } = string.Empty;
 
-        public string PhysicalSize { get; set; } = string.Empty;
+        private PhysicalSizes _physicalSize;
+        public PhysicalSizes PhysicalSizes
+        {
+            get => _physicalSize;
+            set => _physicalSize = value;
+        }
+
+        public string PhysicalSize => _physicalSize.GetDescription();
 
         public string Modifiers { get; set; } = string.Empty;
 
@@ -56,7 +63,7 @@
 
         public bool HasNotes()
         {
-            return Notes?.Length != 0;
+            return Notes?.Length > 0;
         }
     }
 }
